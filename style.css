@@ -15,6 +15,7 @@ body{
     margin: 100px auto;
     border-radius: 10px;
     box-shadow: 10px 10px 4px rgba(210, 240, 38, 0.311);
+    position: relative;
 
 }
 .container:hover{
@@ -98,4 +99,52 @@ input::placeholder{
 }
 .wind-logo{
     margin-left: 80px;
+}
+
+.default-city-field{
+    position: absolute;
+    z-index: 1000;
+    background-color: rgb(232, 82, 82);
+    padding: 40px;
+    height:250px;
+    align-content: center;
+    align-self: center;
+    top: -50px;
+    opacity: 0.8;
+    border-radius: 40px;
+    width: 600px;
+    left: -100px;
+    display: flex;
+    text-align: center;
+    
+
+}
+
+.default-city-field input{
+height: 50px;
+flex: 1;
+background-color: transparent;
+border: 3px solid white;
+outline: none;
+border-radius: 30px;
+padding: 30px;
+align-self: center;
+color: white;
+font-size: 20px;
+box-shadow: 10px 10px 10px black;
+
+}
+.default-city-field button{
+    width: 100px;
+    height: 50px;
+    align-self: center;
+    margin-left: 20px;
+    border-radius: 30px;
+    padding: 30px;
+    background-color: transparent;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid white;
+    
 }

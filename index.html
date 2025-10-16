@@ -24,6 +24,10 @@
           <p class="Wind">Wind</p>
         </div>
       </div>
+      <div class="default-city-field">
+        <input type="text" placeholder="Enter your one time city" id="one-time-city">
+        <button id="submitBtn-city">Submit</button>
+      </div>
     </div>
     <script>
       const apiKey = "38904589b66b4495b423918a8d548344";
@@ -33,6 +37,35 @@
       const searchFiled = document.querySelector("#input-Field");
       const searchBtn = document.querySelector("#search-icon");
 var errorMessage = document.querySelector('.error-message');
+
+
+
+
+const oneTimeCity = document.querySelector('#one-time-city');
+let submitBtncity = document.querySelector('#submitBtn-city')
+
+submitBtncity.addEventListener('click', ()=>{
+    localStorage.setItem('oneTimeCity',oneTimeCity.value);
+    
+    // add window reload here
+    window.location.reload();
+    document.querySelector('.default-city-field').style.display='none'
+})
+window.addEventListener('load',()=>{
+     let oneTimeCity = localStorage.getItem('oneTimeCity')
+        console.log("city loaded"+oneTimeCity)
+        if(!oneTimeCity)
+        {
+            document.querySelector('.default-city-field').style.display="flex"
+            document.querySelector('.data').style.display='none'
+           
+
+        }else{
+            document.querySelector('.default-city-field').style.display="none"
+            checkWeather(oneTimeCity)
+            
+        }
+})
       async function checkWeather(city) {
         try{
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -63,9 +96,7 @@ var errorMessage = document.querySelector('.error-message');
      checkWeather(searchFiled.value);
      document.querySelector(".data").style.display = "flex";
       });
-      window.addEventListener("load", () => {
-        document.querySelector(".data").style.display = "none";
-      });
+    
       window.addEventListener("keydown", (event) => {
         if (event.key == "Enter") {
           if (searchFiled.value == "") {
@@ -77,7 +108,9 @@ var errorMessage = document.querySelector('.error-message');
             
           }
         }
+
       });
+
     </script>
   </body>
 </html>
