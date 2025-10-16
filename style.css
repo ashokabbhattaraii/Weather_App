@@ -11,10 +11,10 @@ body{
 .container{
     max-width: 400px;
     padding: 30px;
-    background-color: rgb(210, 240, 38);
+    background-color: rgba(210, 240, 38, 0.701);
     margin: 200px auto;
     border-radius: 10px;
-    box-shadow: 10px 10px 4px 30px rgba(210, 240, 38, 0.701);
+    box-shadow: 10px 10px 4px rgba(210, 240, 38, 0.311);
 
 }
 .search{
@@ -51,7 +51,7 @@ input::placeholder{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    transition: 2s ease;
     
 }
 .status-icon{
