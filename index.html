@@ -50,6 +50,13 @@ document.querySelector(".data").style.display='flex'
         document.querySelector(".data").style.display='none'
 
        })
+       window.addEventListener('keydown',(event=>{
+        if(event.key=='Enter'){
+            checkWeather(searchFiled.value)
+            document.querySelector(".data").style.display='flex'
+
+        }
+       }))
 
     </script>
 </body>
