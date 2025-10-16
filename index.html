@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+<div class="search">
+    <input type="text" placeholder="Enter the location" id="input-Field">
+    <img src="icons8-search-50.png" alt="search--v1" id="search-icon"/>
+    </div>
+    <div class="data">
+       <img src="mostly_sunny_light.svg" alt="" class="status-icon">
+       <p class="temp">33</p>
+       <p class="city"></p>
+       <div class="extra-details">
+        <img src="icons8-humidity-50.png" alt="" class="humidity-logo"><p class="humidity"></p>
+        <img src="icons8-wind-50.png" alt="" class="wind-logo"><p class="Wind">Wind</p>
+       </div>
+       
+    
+</div>
+    </div>
+    <script>
+       const apiKey = "38904589b66b4495b423918a8d548344";
+       const apiUrl  = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='
+
+       const searchFiled = document.querySelector('#input-Field');
+       const searchBtn = document.querySelector('#search-icon')
+
+       async function checkWeather(city){
+        const response = await fetch(apiUrl+city+`&appid=${apiKey}`);
+        var data = await response.json();
+document.querySelector('.temp').innerHTML=Math.round(data.main.temp)+'oC';
+document.querySelector('.city').innerHTML=data.name;
+document.querySelector('.humidity').innerHTML=data.main.humidity;
+document.querySelector('.Wind').innerHTML=data.wind.speed;
+        console.log(data)
+       }
+       searchBtn.addEventListener('click', ()=>{
+
+checkWeather(searchFiled.value)
+document.querySelector(".data").style.display='flex'
+
+       })
+       window.addEventListener('load', ()=>{
+        document.querySelector(".data").style.display='none'
+
+       })
+
+    </script>
+</body>
+</html>
